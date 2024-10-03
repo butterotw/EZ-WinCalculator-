@@ -1,0 +1,84 @@
+#include <iostream>
+#include<iomanip>
+#include <stdexcept> 
+using namespace std;
+
+void add(int num1, int num2)
+{
+    cout<<"Answer is "<<num1+num2<<endl;
+}
+
+void sub(int num1, int num2)
+{
+    if(num2>num1)
+    {
+        cout<<"Answer is -"<<num2-num1<<endl;
+    }
+    else
+    cout<<"Answer is "<<num1-num2<<endl;
+}
+
+void mul(int num1, int num2)
+{
+    cout<<"Answer is "<<num1*num2<<endl;
+}
+
+void divide(int num1, int num2) { // Renamed from 'div' to 'divide'
+    if (num2 == 0) {
+        cout << "You can't divide zero" << endl;
+    } else {
+        cout << "Answer is " << static_cast<double>(num1) / num2 << endl;
+    }
+}
+
+
+int main() {
+    int x, y, q;
+    char z,end;
+   do{ cout << "--- Enter for calculation ---" << endl;
+    cout<<left<<setw(20)<<"For ADDITION press Q/q"<<endl;
+    cout<<left<<setw(20)<<"For SUBTRACTION press W/w"<<endl;
+    cout<<left<<setw(20)<<"For MULTIPLICATION press E/e"<<endl;
+    cout<<left<<setw(20)<<"For DIVISION press R/r"<<endl;
+    cout<<"Press enter will be assumed as ADDITION"<<endl;
+    cin.get(z);
+    
+   cout << "Num 1: ";
+    cin >> x;
+    cout << "Num 2: ";
+    cin >> y;
+    cin.ignore();
+    
+    try{if(z=='Q'||z=='q'||z=='\n')
+    {
+        add(x,y);
+    }
+    else if (z=='W'||z=='w')
+    {
+        sub(x, y);
+    }
+    else if (z=='E'||z=='e')
+    {
+        mul(x, y);
+    }
+    else if (z=='R'||z=='r')
+    {
+        divide(x, y);
+    }
+    else {
+                throw invalid_argument("Invalid operation selection"); // Throw exception for invalid operation
+            }
+    }catch (const invalid_argument& e) {
+            cout << "Error: " << e.what() << endl; 
+        }
+    
+    cout<<"Press X/x to exit the program, press any key to continue"<<endl;
+    cin.get(end);
+    
+   }while(end!='X'&& end!='x');
+
+
+   system("pause");
+
+    return 0;
+}
