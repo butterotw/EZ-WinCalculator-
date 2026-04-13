@@ -1,5 +1,3 @@
 # EZ-WinCalculator-
-Just a calculator with +-*/ but more convenience (for me)
-? How to install ?
-
-#Step 1
+Just a calculator with +-*/ 
+My first own C++ project yeahahaha
